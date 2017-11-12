@@ -1,0 +1,55 @@
+{
+	"name": "medusa-lib",
+	"version": "0.0.0",
+	"description": "Medusa API Wrapper",
+	"license": "MIT",
+	"repository": "OmgImAlexis/medusa-lib",
+	"author": {
+		"name": "Alexis Tyler",
+		"email": "xo@wvvw.me",
+		"url": "wvvw.me"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && nyc ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"Medusa",
+		"api",
+		"torrent",
+		"client"
+	],
+	"dependencies": {
+		"cross-env": "^5.1.1",
+		"debug": "^3.1.0",
+		"frisbee": "^1.6.1",
+		"jsonwebtoken": "^8.1.0",
+		"whatwg-url": "^6.3.0"
+	},
+	"devDependencies": {
+		"ava": "^0.20.0",
+		"codecov": "^2.2.0",
+		"nyc": "^11.0.0",
+		"xo": "^0.18.2"
+	},
+	"nyc": {
+		"reporter": [
+			"lcov",
+			"text"
+		]
+	},
+	"xo": {
+		"space": 4,
+		"rules": {
+			"object-curly-spacing": [
+				"error",
+				"always"
+			]
+		}
+	}
+}
