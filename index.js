@@ -50,7 +50,7 @@ class Medusa {
 
     series(seriesId, opts = {}) {
         if (arguments.length >= 2) {
-            return this._api.patch(`/series/${seriesId}`, { body: { ...opts } }).then(data => data.body);
+            return this._api.patch(`/series/${seriesId}`, { body: opts }).then(data => data.body);
         }
 
         if (seriesId) {
