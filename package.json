@@ -1,6 +1,6 @@
 {
 	"name": "medusa-lib",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Medusa API Wrapper",
 	"license": "MIT",
 	"repository": "OmgImAlexis/medusa-lib",
@@ -16,7 +16,7 @@
 	},
 	"scripts": {
 		"test": "xo && nyc ava",
-        "postinstall": "cp ./libs/frisbee.js ./node_modules/frisbee/lib/frisbee.js"
+		"postinstall": "cp ./libs/frisbee.js ./node_modules/frisbee/lib/frisbee.js"
 	},
 	"files": [
 		"./index.js"
