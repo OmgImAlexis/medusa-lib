@@ -51,6 +51,10 @@ class Medusa {
         const api = this._api;
 
         return new Promise(async (resolve, reject) => {
+            if ([apiKey, token, username].filter(param => String(param).trim().length ? param : '').length >= 2) {
+                reject(new Error('Too many auth fields passed.'));
+            }
+
             if (token) {
                 debug('Using JWT');
                 api.jwt(token);
@@ -65,7 +69,7 @@ class Medusa {
 
             if (username && password) {
                 debug('Using username + password');
-                const res = await api.post('/authenticate', { body: { username, password } });
+                const res = await api.post('authenticate', { body: { username, password } });
 
                 // Handle HTTP or API errors
                 if (res.err) {
@@ -77,6 +81,8 @@ class Medusa {
                 api.jwt(res.body.token);
                 return resolve();
             }
+
+            reject(new Error('Either the "apiKey", "token" or "username" and "password" params are needed.'));
         });
     }
 
@@ -105,7 +111,7 @@ class Medusa {
             }
         }
 
-        return this._api.get('/series').then(data => data.body);
+        return this._api.get('series').then(data => data.body);
     }
 
     episode() {

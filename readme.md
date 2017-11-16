@@ -5,32 +5,29 @@
 
 ## Install
 
-```
+```console
 $ yarn add medusa-lib
 ```
 
-
 ## Usage
 
-```js
+```javascript
 const Medusa = require('medusa-lib');
 
-const medusa = new Medusa({
-    url: 'http://localhost:8081/'
-});
+const medusa = new Medusa({ url: 'http://localhost:8081/' });
 
 // Authentication will last as long as the JWT expiry
 // By default Medusa ships with a 24 hour expiry
-medusa.auth({username: 'OmgImAlexis', password: 'SuperStrongPassword!'});
+medusa.auth({ username: 'OmgImAlexis', password: 'SuperStrongPassword!' });
 
-medusa.config({
-    torrents: {
-        enabled: false
-    }
-}).then(config => console.log(config));
+// If you need longer than 24 hours and don't want to store
+// the user's credentials we suggest trying the apiKey method for now
+medusa.auth({ apiKey: 'sample-api-key' });
+
+medusa.config({ torrents: { enabled: false } }).then(config => console.log(config));
 // { torrents: { enabled: false } }
 
-medusa.config().then(config => console.log(config.torrents.enabled))
+medusa.config().then(config => console.log(config.torrents.enabled));
 // { torrents: { enabled: false } }
 ```
 
