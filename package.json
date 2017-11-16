@@ -15,7 +15,8 @@
 		"node": ">=8"
 	},
 	"scripts": {
-		"test": "xo && nyc ava"
+		"test": "xo && nyc ava",
+        "postinstall": "cp ./libs/frisbee.js ./node_modules/frisbee/lib/frisbee.js"
 	},
 	"files": [
 		"./index.js"
