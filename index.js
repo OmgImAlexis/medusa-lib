@@ -1,6 +1,6 @@
 const Frisbee = require('frisbee');
 const Debug = require('debug');
-const { URL } = require('whatwg-url');
+const urlJoin = require('url-join');
 
 const NOT_IMPLEMENTED = new Error('Method not implemented yet.');
 const debug = new Debug('medusa');
@@ -26,8 +26,10 @@ class Medusa {
 
         this.apiKey = opts.apiKey || null;
 
+        const baseURI = urlJoin(opts.url, 'api/v2');
+        debug(`Using ${baseURI} for API.`);
         this._api = new Frisbee({
-            baseURI: new URL('/api/v2', opts.url),
+            baseURI,
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -37,51 +39,12 @@ class Medusa {
         this._api.interceptor.register({
             response: response => {
                 if (typeof response.body === 'string' && response.url.endsWith('/authenticate')) {
+                    debug('Detected authenticate route');
                     response.body = { token: response.body };
                 }
                 return response;
             }
         });
-    }
-
-    account() {
-        return NOT_IMPLEMENTED;
-    }
-
-    series(seriesId, opts = {}) {
-        if (arguments.length >= 2) {
-            return this._api.patch(`/series/${seriesId}`, { body: opts }).then(data => data.body);
-        }
-
-        if (seriesId) {
-            // If seriesId is string then get series
-            if (typeof seriesId === 'string') {
-                return this._api.get(`/series/${seriesId}`).then(data => data.body);
-            }
-
-            // If seriesId is opts
-            if (typeof seriesId === 'object') {
-                const { page, limit, sort } = seriesId;
-
-                validate.typeof([page, limit, sort], ['string', 'integer']);
-
-                return this._api.get(`/series/${seriesId}?page=${page}&limit=${limit}`).then(data => data.body);
-            }
-        }
-
-        return this._api.get('/series').then(data => data.body);
-    }
-
-    episode() {
-        return NOT_IMPLEMENTED;
-    }
-
-    config(opts = {}) {
-        if (arguments.length >= 1) {
-            return this._api.patch('/config/main', { body: opts }).then(data => data.body);
-        }
-
-        return this._api.get('/config').then(data => data.body[0]);
     }
 
     auth({ apiKey, token, username, password }) {
@@ -115,6 +78,46 @@ class Medusa {
                 return resolve();
             }
         });
+    }
+
+    account() {
+        return NOT_IMPLEMENTED;
+    }
+
+    series(seriesId, opts = {}) {
+        if (arguments.length >= 2) {
+            return this._api.patch(`series/${seriesId}`, { body: opts }).then(data => data.body);
+        }
+
+        if (seriesId) {
+            // If seriesId is string then get series
+            if (typeof seriesId === 'string') {
+                return this._api.get(`series/${seriesId}`).then(data => data.body);
+            }
+
+            // If seriesId is opts
+            if (typeof seriesId === 'object') {
+                const { page, limit, sort } = seriesId;
+
+                validate.typeof([page, limit, sort], ['string', 'integer']);
+
+                return this._api.get(`series/${seriesId}?page=${page}&limit=${limit}`).then(data => data.body);
+            }
+        }
+
+        return this._api.get('/series').then(data => data.body);
+    }
+
+    episode() {
+        return NOT_IMPLEMENTED;
+    }
+
+    config(opts = {}) {
+        if (arguments.length >= 1) {
+            return this._api.patch('config/main', { body: opts }).then(data => data.body);
+        }
+
+        return this._api.get('config').then(data => data.body[0]);
     }
 }
 

@@ -29,7 +29,7 @@
 		"debug": "^3.1.0",
 		"frisbee": "^1.6.1",
 		"jsonwebtoken": "^8.1.0",
-		"whatwg-url": "^6.3.0"
+		"url-join": "^2.0.2"
 	},
 	"devDependencies": {
 		"ava": "^0.20.0",
