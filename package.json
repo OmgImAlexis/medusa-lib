@@ -9,6 +9,8 @@
 		"email": "xo@wvvw.me",
 		"url": "wvvw.me"
 	},
+	"main": "./index.js",
+	"types": "./index.d.ts",
 	"engines": {
 		"node": ">=8"
 	},
@@ -16,7 +18,7 @@
 		"test": "xo && nyc ava"
 	},
 	"files": [
-		"index.js"
+		"./index.js"
 	],
 	"keywords": [
 		"Medusa",
@@ -29,6 +31,7 @@
 		"debug": "^3.1.0",
 		"frisbee": "^1.6.1",
 		"jsonwebtoken": "^8.1.0",
+		"typescript": "^2.6.1",
 		"url-join": "^2.0.2"
 	},
 	"devDependencies": {
