@@ -1,5 +1,4 @@
 const { Url } = require('url');
-const WebSocket = require('ws');
 const Frisbee = require('frisbee');
 const Debug = require('debug');
 const urlJoin = require('url-join');
@@ -147,17 +146,6 @@ class Medusa {
         }
 
         return this._api.get('config').then(data => data.body[0]);
-    }
-
-    ws(messageUrl = '/ws/ui') {
-        const url = new Url(this.url);
-        url.protocol = url.protocol === 'https:' ? 'wss:' : 'ws:';
-        url.pathname += messageUrl;
-
-        const ws = new WebSocket(url.href);
-        this._ws = ws;
-
-        return ws;
     }
 }
 
