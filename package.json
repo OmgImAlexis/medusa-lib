@@ -27,10 +27,11 @@
 		"cross-env": "^5.1.1",
 		"debug": "^3.1.0",
 		"dot-prop": "^4.2.0",
-		"frisbee": "^1.6.2",
+		"frisbee": "latest",
 		"jsonwebtoken": "^8.1.0",
 		"typescript": "^2.6.1",
-		"url-join": "^2.0.2"
+		"url-join": "^2.0.2",
+		"ws": "^3.3.1"
 	},
 	"devDependencies": {
 		"ava": "^0.20.0",

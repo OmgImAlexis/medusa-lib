@@ -1,3 +1,5 @@
+const { Url } = require('url');
+const WebSocket = require('ws');
 const Frisbee = require('frisbee');
 const Debug = require('debug');
 const urlJoin = require('url-join');
@@ -26,8 +28,9 @@ class Medusa {
         }
 
         this.apiKey = opts.apiKey || null;
+        this.url = opts.url || 'http://localhost:8081/';
 
-        const baseURI = urlJoin(opts.url, 'api/v2');
+        const baseURI = urlJoin(this.url, 'api/v2');
         debug(`Using ${baseURI} for API.`);
         this._api = new Frisbee({
             baseURI,
@@ -144,6 +147,17 @@ class Medusa {
         }
 
         return this._api.get('config').then(data => data.body[0]);
+    }
+
+    ws(messageUrl = '/ws/ui') {
+        const url = new Url(this.url);
+        url.protocol = url.protocol === 'https:' ? 'wss:' : 'ws:';
+        url.pathname += messageUrl;
+
+        const ws = new WebSocket(url.href);
+        this._ws = ws;
+
+        return ws;
     }
 }
 
