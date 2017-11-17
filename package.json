@@ -29,7 +29,8 @@
 	"dependencies": {
 		"cross-env": "^5.1.1",
 		"debug": "^3.1.0",
-		"frisbee": "^1.6.1",
+		"dot-prop": "^4.2.0",
+		"frisbee": "^1.6.2",
 		"jsonwebtoken": "^8.1.0",
 		"typescript": "^2.6.1",
 		"url-join": "^2.0.2"

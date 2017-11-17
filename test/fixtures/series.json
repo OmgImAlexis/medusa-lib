@@ -1,0 +1,86 @@
+[
+    {
+        "status":"Ended",
+        "rating":{
+            "imdb":{
+                "rating":"8.2",
+                "votes":125772
+            }
+        },
+        "genres":[
+            "Mystery",
+            "Romance",
+            "Crime",
+            "Drama",
+            "Comedy"
+        ],
+        "showType":"series",
+        "network":"ABC (US)",
+        "language":"en",
+        "title":"Castle (2009)",
+        "akas":{
+
+        },
+        "classification":"TV-14",
+        "plot":"Richard \"Rick\" Castle is a millionaire playboy who recently killed off his main character when a serial killer starts killing people like he does in his books. He teams up with New York police detective Kate Beckett to solve the case. He finds inspiration in Detective Beckett and starts shadowing her for his next book.",
+        "indexer":"tvdb",
+        "countries":[
+            "UNITED STATES"
+        ],
+        "cache":{
+            "poster":"/Users/xo/code/Medusa/cache/images/83462.poster.jpg",
+            "banner":"/Users/xo/code/Medusa/cache/images/83462.banner.jpg"
+        },
+        "airs":"Monday 9:00 PM",
+        "year":{
+            "start":2009
+        },
+        "config":{
+            "qualities":{
+                "preferred":[
+
+                ],
+                "allowed":[
+                    "SDTV",
+                    "SD DVD"
+                ]
+            },
+            "defaultEpisodeStatus":"Skipped",
+            "dvdOrder":false,
+            "flattenFolders":false,
+            "scene":false,
+            "paused":true,
+            "location":"/Users/xo/fakeShows/Castle (2009)",
+            "airByDate":false,
+            "release":{
+                "blacklist":[
+
+                ],
+                "ignoredWords":[
+
+                ],
+                "whitelist":[
+
+                ],
+                "requiredWords":[
+
+                ]
+            },
+            "subtitlesEnabled":false,
+            "aliases":[
+                "Castle 2009",
+                "Castle",
+                "Castle (2009)"
+            ]
+        },
+        "country_codes":[
+            "us"
+        ],
+        "runtime":43,
+        "type":"Scripted",
+        "id":{
+            "tvdb":83462,
+            "imdb":"tt1219024"
+        }
+    }
+]

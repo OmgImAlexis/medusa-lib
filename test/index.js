@@ -1,5 +1,6 @@
 const test = require('ava');
-const Medusa = require('.');
+const Medusa = require('..');
+const fixtures = require('./fixtures');
 
 test.beforeEach(t => {
     t.context = {
@@ -15,6 +16,17 @@ test.beforeEach(t => {
 test('returns self', t => {
     const { medusa } = t.context;
     t.true(medusa instanceof Medusa);
+});
+
+test('generateIdentifier returns valid identifier', t => {
+    const identifier = Medusa.generateIdentifier({
+        showType: 'series',
+        id: {
+            tvdb: '83462'
+        }
+    });
+
+    t.is(identifier, 'tvdb83462');
 });
 
 test('authenticate accepts username + password', async t => {
@@ -63,6 +75,25 @@ test('returns all series', async t => {
     // Get all series
     t.is(await medusa.series().then(allSeries => allSeries.length), 1);
 
-    // Set first series
-    t.is(await medusa.series().then(([series]) => series.status), 'Ended');
+    // Get first series
+    t.is(await medusa.series().then(([series]) => series.title), fixtures.series[0].title);
+});
+
+test.failing('set series to paused', async t => {
+    const { medusa, username, password } = t.context;
+    await medusa.auth({ username, password });
+
+    // Get series
+    const castleSeries = await medusa.series().then(([series]) => series);
+
+    // Get first series
+    const identifier = Medusa.generateIdentifier(castleSeries);
+
+    // Set paused = true
+    t.is(await medusa.series(identifier, { config: { paused: true } }), {});
+    t.is(await medusa.series(identifier).then(series => series.config.paused), true);
+
+    // Set paused = false
+    await medusa.series(identifier, { config: { paused: false } });
+    t.is(await medusa.series(identifier).then(series => series.config.paused), false);
 });
