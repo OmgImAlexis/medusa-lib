@@ -1,4 +1,4 @@
-const { Url } = require('whatwg-url');
+const Url = require('whatwg-url');
 const Frisbee = require('frisbee');
 const Debug = require('debug');
 const urlJoin = require('url-join');
