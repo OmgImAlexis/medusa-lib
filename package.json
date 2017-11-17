@@ -17,9 +17,6 @@
 	"scripts": {
 		"test": "xo && nyc ava"
 	},
-	"files": [
-		"./index.js"
-	],
 	"keywords": [
 		"Medusa",
 		"api",
