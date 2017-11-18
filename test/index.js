@@ -19,12 +19,7 @@ test('returns self', t => {
 });
 
 test('generateIdentifier returns valid identifier', t => {
-    const identifier = Medusa.generateIdentifier({
-        showType: 'series',
-        id: {
-            tvdb: '83462'
-        }
-    });
+    const identifier = Medusa.generateIdentifier(fixtures.series[0]);
 
     t.is(identifier, 'tvdb83462');
 });
@@ -86,7 +81,7 @@ test.failing('set series to paused', async t => {
     // Get series
     const castleSeries = await medusa.series().then(([series]) => series);
 
-    // Get first series
+    // Get series id
     const identifier = Medusa.generateIdentifier(castleSeries);
 
     // Set paused = true
