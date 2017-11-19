@@ -12,20 +12,19 @@ test.beforeEach(t => {
     };
 });
 
-test.failing('add series using tvdb', async t => {
+test.only('add series using tvdb', async t => {
     const { medusa, username, password } = t.context;
     await medusa.auth({ username, password });
 
     // Create series
-    const castleSeries = new Series({ indexer: 'tvdb', id: '83462' });
+    const mayonnaiseSeries = new Series({ indexer: 'tvdb', id: '334387' });
+
+    // Send request to Medusa to save
+    const series = await mayonnaiseSeries.save();
 
     // Get series id
-    const identifier = Medusa.generateIdentifier(castleSeries);
-    t.is(await medusa.series(identifier).then(series => series.status), 'Unknown');
+    const identifier = Medusa.generateIdentifier(series);
 
-    // Since we don't want to wait for the background process
-    // let's just force the update to happen now
-    castleSeries.update();
-
-    t.is(await medusa.series(identifier).then(series => series.status), 'Ended');
+    // Check if series was added
+    t.is(await medusa.series(identifier).then(series => series.seasons.length), 1);
 });
