@@ -1,3 +1,5 @@
+const join = require('join-array');
+
 const validate = {
     typeof: (inputs, opts) => {
         inputs = Array.isArray(inputs) ? inputs : [inputs];
@@ -5,7 +7,7 @@ const validate = {
 
         inputs.forEach(input => {
             if (!opts.includes(typeof input)) {
-                throw new Error(`"${input}" must be a string or integer`);
+                throw new Error(`"${input}" must be a ${join({ array: opts, separator: ', ', last: ' or ' })}.`);
             }
         });
     }
