@@ -1,6 +1,6 @@
 {
 	"name": "medusa-lib",
-	"version": "0.0.19",
+	"version": "0.0.20",
 	"description": "Medusa API Wrapper",
 	"license": "MIT",
 	"repository": "OmgImAlexis/medusa-lib",
