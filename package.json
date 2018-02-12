@@ -1,6 +1,6 @@
 {
 	"name": "medusa-lib",
-	"version": "0.0.24",
+	"version": "0.0.25",
 	"description": "Medusa API Wrapper",
 	"license": "MIT",
 	"repository": "OmgImAlexis/medusa-lib",
@@ -9,15 +9,15 @@
 		"email": "xo@wvvw.me",
 		"url": "wvvw.me"
 	},
-    "main": "dist/medusa-lib.js",
-    "module": "dist/medusa-lib.es.js",
-    "browser": "dist/medusa-lib.cjs.js",
+	"main": "dist/medusa-lib.js",
+	"module": "dist/medusa-lib.es.js",
+	"browser": "dist/medusa-lib.cjs.js",
 	"types": "./index.d.ts",
 	"engines": {
 		"node": ">=8"
 	},
 	"scripts": {
-        "build": "bili --moduleName Medusa --format cjs,es,umd,umd-min",
+		"build": "bili --moduleName Medusa --format cjs,es,umd,umd-min",
 		"test": "xo && nyc ava"
 	},
 	"keywords": [
@@ -26,10 +26,10 @@
 		"torrent",
 		"client"
 	],
-    "files": [
-        "index.d.ts",
-        "dist"
-    ],
+	"files": [
+		"index.d.ts",
+		"dist"
+	],
 	"dependencies": {
 		"cross-env": "^5.1.1",
 		"debug": "^3.1.0",
