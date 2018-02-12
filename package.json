@@ -15,6 +15,7 @@
 		"node": ">=8"
 	},
 	"scripts": {
+        "build": "bili --moduleName Medusa --format cjs,es,umd,umd-min",
 		"test": "xo && nyc ava"
 	},
 	"keywords": [
@@ -23,6 +24,9 @@
 		"torrent",
 		"client"
 	],
+    "files": [
+        "dist"
+    ],
 	"dependencies": {
 		"cross-env": "^5.1.1",
 		"debug": "^3.1.0",
@@ -36,6 +40,7 @@
 	},
 	"devDependencies": {
 		"ava": "^0.20.0",
+		"bili": "^2.2.6",
 		"codecov": "^2.2.0",
 		"nyc": "^11.0.0",
 		"xo": "^0.18.2"

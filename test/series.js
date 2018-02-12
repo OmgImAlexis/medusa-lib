@@ -1,5 +1,5 @@
 const test = require('ava');
-const { Medusa, Series } = require('..');
+const { Medusa, Series } = require('../src');
 
 test.beforeEach(t => {
     t.context = {
@@ -12,7 +12,7 @@ test.beforeEach(t => {
     };
 });
 
-test.only('add series using tvdb', async t => {
+test('add series using tvdb', async t => {
     const { medusa, username, password } = t.context;
     await medusa.auth({ username, password });
 
