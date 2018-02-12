@@ -11,13 +11,13 @@
 	},
 	"main": "dist/medusa-lib.js",
 	"module": "dist/medusa-lib.es.js",
-	"browser": "dist/medusa-lib.cjs.js",
+	"browser": "dist/medusa-lib.min.js",
 	"types": "./index.d.ts",
 	"engines": {
 		"node": ">=8"
 	},
 	"scripts": {
-		"build": "bili --moduleName Medusa --format cjs,es,umd,umd-min",
+		"build": "bili --moduleName Medusa --format es,umd,umd-min",
 		"test": "xo && nyc ava"
 	},
 	"keywords": [
