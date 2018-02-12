@@ -9,7 +9,9 @@
 		"email": "xo@wvvw.me",
 		"url": "wvvw.me"
 	},
-	"main": "./index.js",
+    "main": "dist/medusa-lib.js",
+    "module": "dist/medusa-lib.es.js",
+    "browser": "dist/medusa-lib.cjs.js",
 	"types": "./index.d.ts",
 	"engines": {
 		"node": ">=8"
@@ -25,6 +27,7 @@
 		"client"
 	],
     "files": [
+        "index.d.ts",
         "dist"
     ],
 	"dependencies": {
