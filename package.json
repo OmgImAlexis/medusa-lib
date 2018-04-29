@@ -39,7 +39,7 @@
 		"jsonwebtoken": "^8.1.0",
 		"lodash": "^4.17.4",
 		"typescript": "^2.6.1",
-		"url-join": "^2.0.2"
+		"url-join": "^4.0.0"
 	},
 	"devDependencies": {
 		"ava": "0.20.0",
