@@ -38,7 +38,7 @@
 		"join-array": "^1.0.0",
 		"jsonwebtoken": "^8.1.0",
 		"lodash": "^4.17.4",
-		"typescript": "^2.6.1",
+		"typescript": "^3.0.0",
 		"url-join": "^2.0.2"
 	},
 	"devDependencies": {
