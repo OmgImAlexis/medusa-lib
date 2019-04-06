@@ -33,7 +33,7 @@
 	"dependencies": {
 		"cross-env": "^5.1.1",
 		"debug": "^3.1.0",
-		"dot-prop": "^4.2.0",
+		"dot-prop": "^5.0.0",
 		"frisbee": "latest",
 		"join-array": "^1.0.0",
 		"jsonwebtoken": "^8.1.0",
